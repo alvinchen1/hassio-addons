@@ -25,7 +25,7 @@ schema:
     multiplier: float(0,)?
     name: str?
     precision: int(0,)?
-    protocol: list(idm|netidm|r900|scm|scm+)
+    protocol: list(idm|netidm|r900|r900bcd|scm|scm+)
     type: list(gas|water|energy)?
     unit_of_measurement: str?
   mqtt:

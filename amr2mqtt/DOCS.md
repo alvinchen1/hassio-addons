@@ -130,7 +130,7 @@ ID of the meter, must be a positive integer.
 #### Sub-option: `protocol`
 
 Protocol the meter uses for its readings. Must be one of the following: `idm`,
-`netidm`, `r900`, `scm`, or `scm+`.
+`netidm`, `r900`, `r900bcd`, `scm`, or `scm+`.
 
 #### Sub-option: `name`
 
