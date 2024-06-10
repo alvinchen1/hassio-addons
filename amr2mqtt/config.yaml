@@ -46,4 +46,4 @@ uart: true
 udev: true
 url: https://github.com/alvinchen1/addon-amr2mqtt
 usb: true
-version: 2024.6.0
+version: 2.1.3
