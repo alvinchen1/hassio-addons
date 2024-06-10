@@ -4,7 +4,7 @@
 ![Maintenance][maintenance-shield]
 [![License][license-shield]](LICENSE)
 
-A hopefully useful collection of HA add-ons made by mdegat01.
+A hopefully useful collection of HA add-ons made by alvinchen1.
 
 ## Installation
 
@@ -16,7 +16,7 @@ with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
 Or alternatively, copy this URL and add it as a repository in the add-on store:
 
 ```txt
-https://github.com/mdegat01/hassio-addons
+https://github.com/alvinchen1/hassio-addons
 ```
 
 ## Add-ons provided by this repository
