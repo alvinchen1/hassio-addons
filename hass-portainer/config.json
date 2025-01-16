@@ -26,6 +26,6 @@
   "panel_icon": "mdi:docker",
   "slug": "portainer",
   "startup": "services",
-  "url": "https://github.com/alvinchen1/hassio-addons",
-  "version": "2025.1.0"
+  "url": "https://github.com/MikeJMcGuire/hass-portainer",
+  "version": "2024.12.0"
 }
