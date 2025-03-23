@@ -1,4 +1,4 @@
-# mdegat01's Home Assistant Add-ons
+# alvinchen1's Home Assistant Add-ons
 
 ![Project Stage][project-stage-shield]
 ![Maintenance][maintenance-shield]
@@ -21,7 +21,7 @@ https://github.com/alvinchen1/hassio-addons
 
 ## Add-ons provided by this repository
 
-### &#10003; [AMR2MQTT][addon-amr2mqtt]f
+### &#10003; [AMR2MQTT][addon-amr2mqtt]
 
 ![Latest Version][amr2mqtt-version-shield]
 ![Supports armhf Architecture][amr2mqtt-armhf-shield]
@@ -36,65 +36,20 @@ AMR2MQTT for Home Assistant
 
 [:books: AMR2MQTT add-on documentation][addon-doc-amr2mqtt]
 
-### &#10003; [HedgeDoc][addon-hedgedoc]f
+### &#10003; [Portainer][addon-portainer]
 
-![Latest Version][hedgedoc-version-shield]
-![Supports armhf Architecture][hedgedoc-armhf-shield]
-![Supports armv7 Architecture][hedgedoc-armv7-shield]
-![Supports aarch64 Architecture][hedgedoc-aarch64-shield]
-![Supports amd64 Architecture][hedgedoc-amd64-shield]
-![Supports i386 Architecture][hedgedoc-i386-shield]
+![Latest Version][portainer-version-shield]
+![Supports armhf Architecture][portainer-armhf-shield]
+![Supports armv7 Architecture][portainer-armv7-shield]
+![Supports aarch64 Architecture][portainer-aarch64-shield]
+![Supports amd64 Architecture][portainer-amd64-shield]
+![Supports i386 Architecture][portainer-i386-shield]
 
-HedgeDoc for Home Assistant
+Portaioner for Home Assistant
 
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon-hedgedoc]
+[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon-poartainer]
 
-[:books: HedgeDoc add-on documentation][addon-doc-hedgedoc]
-
-### &#10003; [Loki][addon-loki]f
-
-![Latest Version][loki-version-shield]
-![Supports armhf Architecture][loki-armhf-shield]
-![Supports armv7 Architecture][loki-armv7-shield]
-![Supports aarch64 Architecture][loki-aarch64-shield]
-![Supports amd64 Architecture][loki-amd64-shield]
-![Supports i386 Architecture][loki-i386-shield]
-
-Loki for Home Assistant
-
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon-loki]
-
-[:books: Loki add-on documentation][addon-doc-loki]
-
-### &#10003; [Promtail][addon-promtail]f
-
-![Latest Version][promtail-version-shield]
-![Supports armhf Architecture][promtail-armhf-shield]
-![Supports armv7 Architecture][promtail-armv7-shield]
-![Supports aarch64 Architecture][promtail-aarch64-shield]
-![Supports amd64 Architecture][promtail-amd64-shield]
-![Supports i386 Architecture][promtail-i386-shield]
-
-Promtail for Home Assistant
-
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon-promtail]
-
-[:books: Promtail add-on documentation][addon-doc-promtail]
-
-### &#10003; [Sharry][addon-sharry]f
-
-![Latest Version][sharry-version-shield]
-![Supports armhf Architecture][sharry-armhf-shield]
-![Supports armv7 Architecture][sharry-armv7-shield]
-![Supports aarch64 Architecture][sharry-aarch64-shield]
-![Supports amd64 Architecture][sharry-amd64-shield]
-![Supports i386 Architecture][sharry-i386-shield]
-
-Sharry for Home Assistant
-
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon-sharry]
-
-[:books: Sharry add-on documentation][addon-doc-sharry]
+[:books: Portainer add-on documentation][addon-doc-portainer]
 
 ## Releases
 
@@ -122,10 +77,7 @@ GitHub repository for each add-on. Please ensure you are creating the issue
 on the correct GitHub repository matching the add-on.
 
 - [Open an issue for the add-on: AMR2MQTT][amr2mqtt-issue]
-- [Open an issue for the add-on: HedgeDoc][hedgedoc-issue]
-- [Open an issue for the add-on: Loki][loki-issue]
-- [Open an issue for the add-on: Promtail][promtail-issue]
-- [Open an issue for the add-on: Sharry][sharry-issue]
+- [Open an issue for the add-on: Portainer][portainer-issue]
 
 For a general repository issue or add-on ideas [open an issue here][issue]
 
@@ -163,46 +115,6 @@ SOFTWARE.
 [amr2mqtt-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
 [amr2mqtt-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [amr2mqtt-i386-shield]: https://img.shields.io/badge/i386-no-red.svg
-[addon-hedgedoc]: https://github.com/mdegat01/addon-hedgedoc/tree/v1.6.3
-[addon-doc-hedgedoc]: https://github.com/mdegat01/addon-hedgedoc/blob/v1.6.3/README.md
-[hedgedoc-issue]: https://github.com/mdegat01/addon-hedgedoc/issues
-[hedgedoc-version-shield]: https://img.shields.io/badge/version-v1.6.3-blue.svg
-[add-addon-hedgedoc]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_hedgedoc
-[hedgedoc-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[hedgedoc-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[hedgedoc-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
-[hedgedoc-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[hedgedoc-i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
-[addon-loki]: https://github.com/mdegat01/addon-loki/tree/v1.11.2
-[addon-doc-loki]: https://github.com/mdegat01/addon-loki/blob/v1.11.2/README.md
-[loki-issue]: https://github.com/mdegat01/addon-loki/issues
-[loki-version-shield]: https://img.shields.io/badge/version-v1.11.2-blue.svg
-[add-addon-loki]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_loki
-[loki-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[loki-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[loki-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
-[loki-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[loki-i386-shield]: https://img.shields.io/badge/i386-no-red.svg
-[addon-promtail]: https://github.com/mdegat01/addon-promtail/tree/v2.2.0
-[addon-doc-promtail]: https://github.com/mdegat01/addon-promtail/blob/v2.2.0/README.md
-[promtail-issue]: https://github.com/mdegat01/addon-promtail/issues
-[promtail-version-shield]: https://img.shields.io/badge/version-v2.2.0-blue.svg
-[add-addon-promtail]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_promtail
-[promtail-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[promtail-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[promtail-armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
-[promtail-armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[promtail-i386-shield]: https://img.shields.io/badge/i386-no-red.svg
-[addon-sharry]: https://github.com/mdegat01/addon-sharry/tree/v2.0.2
-[addon-doc-sharry]: https://github.com/mdegat01/addon-sharry/blob/v2.0.2/README.md
-[sharry-issue]: https://github.com/mdegat01/addon-sharry/issues
-[sharry-version-shield]: https://img.shields.io/badge/version-v2.0.2-blue.svg
-[add-addon-sharry]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_sharry
-[sharry-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[sharry-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[sharry-armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
-[sharry-armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
-[sharry-i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 [add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
 [add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A//github.com/mdegat01/hassio-addons
