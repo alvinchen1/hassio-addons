@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Updated to Portainer CE v2.27.1.
+- Updated to Portainer CE v2.27.9.
 
 ## [v2025.3.0] - 2025-03-23
 
