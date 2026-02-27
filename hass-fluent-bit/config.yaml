@@ -12,7 +12,6 @@ startup: services
 
 map:
   - addon_config
-  - "homeassistant_config:rw"
 
 journald: true
 
