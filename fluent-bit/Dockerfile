@@ -2,7 +2,8 @@ ARG BUILD_FROM=ghcr.io/home-assistant/{arch}-debian-base:latest
 FROM ${BUILD_FROM}
 
 # Set Fluent Bit version explicitly
-ARG FLUENTBIT_VERSION=3.2.10
+ARG FLUENTBIT_VERSION="3.2.10"
+ARG BUILD_ARCH
 
 # Labels required by Home Assistant Supervisor
 LABEL \
