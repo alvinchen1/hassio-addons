@@ -1,4 +1,4 @@
-FROM ghcr.io/hassio-addons/debian-base:9.1.0
+FROM ghcr.io/hassio-addons/debian-base:6.2.0
 
 RUN apt-get update -y && \
     apt-get install curl gpg --no-install-recommends -y
@@ -8,11 +8,9 @@ RUN cat /fluentbit.key | gpg --dearmor > /usr/share/keyrings/fluentbit-keyring.g
     rm /fluentbit.key
 
 RUN . /etc/os-release && \
-    export OS=$( echo "${ID}" | tr '[:upper:]' '[:lower:]') && \
     export CODENAME=$( echo "${VERSION_CODENAME}" | tr '[:upper:]' '[:lower:]') && \
     echo "deb [signed-by=/usr/share/keyrings/fluentbit-keyring.gpg] https://packages.fluentbit.io/debian/${CODENAME} ${CODENAME} main" > /etc/apt/sources.list.d/fluentbit.list
 
-# renovate: release=bookworm depName=fluent-bit
 ENV FLUENTBIT_VERSION="3.2.4"
 
 RUN echo "Installing Fluent Bit version: ${FLUENTBIT_VERSION}"
