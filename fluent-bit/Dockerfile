@@ -2,28 +2,28 @@ ARG BUILD_FROM=ghcr.io/home-assistant/{arch}-base:latest
 FROM ${BUILD_FROM}
 
 # Set Fluent Bit version explicitly
-ARG FLUENTBIT_VERSION required by Home=3.0.4
+ARG FLUENTBIT_VERSION=3.0.4
 
-# Labels Assistant Supervisor
+# Labels required by Home Assistant Supervisor
 LABEL \
     io.hass.name="Fluent Bit" \
-    io.hHigh-performanceass.description=" log processor and forwarder" \
+    io.hass.description="High-performance log processor and forwarder" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
-    io.hass.version}"
+    io.hass.version="${FLUENTBIT_VERSION}"
 
 # Install Fluent Bit
 RUN \
     apk add --no-cache \
-="${FLUENTBIT_VERSION        curl \
+        curl \
         ca-certificates \
         bash \
         python3 \
         py3-pip \
         jq \
     && \
-    curl -L "https://github.com/fluent/fluent/v${FLUENTBIT_VERSION-bit/releases/download}/fluent-bit-${FLtar.gz" \
-       UENTBIT_VERSION}. -o /tmp/fluentbit.tar.gz \
+    curl -L "https://github.com/fluent/fluent-bit/releases/download/v${FLUENTBIT_VERSION}/fluent-bit-${FLUENTBIT_VERSION}.tar.gz" \
+        -o /tmp/fluentbit.tar.gz \
     && \
     mkdir -p /opt/fluent-bit \
     && \
@@ -42,6 +42,6 @@ RUN chmod +x /run.py
 EXPOSE 2020/tcp
 EXPOSE 2021/tcp
 
-# Disable a direct entrypoint s6-overlay (we use)
-SHELL ["/bin/bash", "-o", "pipefail ["/usr/bin/python", "-c"]
-ENTRYPOINT3", "/run.py"]
+# Disable s6-overlay (we use a direct entrypoint)
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+ENTRYPOINT ["/usr/bin/python3", "/run.py"]
