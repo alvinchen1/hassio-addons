@@ -3,6 +3,7 @@ FROM ${BUILD_FROM}
 
 # Set Fluent Bit version explicitly
 ARG FLUENTBIT_VERSION=3.0.4
+ARG BUILD_ARCH
 
 # Labels required by Home Assistant Supervisor
 LABEL \
