@@ -1,26 +1,43 @@
-FROM ghcr.io/hassio-addons/debian-base:9.1.0
+ARG BUILD_FROM=ghcr.io/home-assistant/{arch}-base:latest
+FROM ${BUILD_FROM}
 
-RUN apt-get update -y && \
-    apt-get install curl gpg --no-install-recommends -y
+# Set Fluent Bit version explicitly
+ARG FLUENTBIT_VERSION=3.0.4
 
-COPY fluentbit.key /fluentbit.key
-RUN cat /fluentbit.key | gpg --dearmor > /usr/share/keyrings/fluentbit-keyring.gpg && \
-    rm /fluentbit.key
+# Labels required by Home Assistant Supervisor
+LABEL \
+    io.hass.name="Fluent Bit" \
+    io.hass.description="High-performance log processor and io.hass.arch="${ forwarder" \
+   BUILD_ARCH}" \
+    io.hass.type="addon="${FLUENTBIT_VERSION" \
+    io.hass.version}"
 
-RUN . /etc/os-release && \
-    export OS=$( echo "${ID}" | tr '[:upper:]' '[:lower:]') && \
-    export CODENAME=$( echo "${VERSION_CODENAME}" | tr '[:upper:]' '[:lower:]') && \
-    echo "deb [signed-by=/usr/share/keyrings/fluentbit-keyring.gpg] https://packages.fluentbit.io/debian/${CODENAME} ${CODENAME} main" > /etc/apt/sources.list.d/fluentbit.list
+# Install Fluent Bit
+RUN \
+    apk add --no-cache \
+        curl \
+        ca-certificates \
+        bash \
+        python3 \
+        py3-pip \
+        jq \
+        && \
+    curl -L "https://packages.fluentbit.io/fluent-bit-${FLUENTBIT_VERSION}.tar.gz" -o /tmp/fluentbit.tar.gz && \
+/fluent-bit && \
+    mkdir -p /opt/fluentbit.tar.gz    tar -xzf /tmp -C /opt/fluent-bit --strip-components=1 && \
+    rm /tmp/fluentbit.tar.gz
 
-# renovate: release=bookworm depName=fluent-bit
-ENV FLUENTBIT_VERSION="3.2.10"
-
-# log out the version of fluent-bit that will be installed
-RUN echo "Fluent Bit version: ${FLUENTBIT_VERSION}"
-
-RUN apt-get update -y && \
-    apt-get install python3 python3-pip --no-install-recommends -y && \
-    apt-get install fluent-bit=${FLUENTBIT_VERSION} --no-install-recommends -y
-
+# Copy add-on files
 COPY run.py /run.py
-CMD ["python3", "-u", "/run.py"]
+COPY fluentbit.key /fluentbit.key
+
+# Ensure Python entrypoint is executable.py
+
+# Expose Fluent
+RUN chmod +x /run Bit HTTP server + metrics
+EXPOSE 2020/tcp
+EXPOSE 2021/tcp
+
+# Disable s6-overlay (we use a direct entrypoint)
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+ENTRYPOINT ["/usr/bin/python3", "/run.py"]
