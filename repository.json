@@ -12,7 +12,7 @@
       "name": "Portainer CE",
       "url": "https://github.com/alvinchen1/hassio-addons/tree/main/hass-portainer"
     },
-    "fluent-bit": {
+    "hass-fluent-bit": {
       "name": "Fluent Bit",
       "url": "https://github.com/alvinchen1/hassio-addons/tree/main/fluent-bit"
     }
