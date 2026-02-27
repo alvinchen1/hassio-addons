@@ -22,7 +22,14 @@ RUN \
         py3-pip \
         jq \
     && \
-    curl -L "https://github.com/fluent/fluent-bit/releases/download/v${FLUENTBIT_VERSION}/fluent-bit-${FLUENTBIT_VERSION}.tar.gz" \
+    case "${BUILD_ARCH}" in \
+        amd64)   FB_ARCH="x86_64" ;; \
+        aarch64) FB_ARCH="arm64" ;; \
+        armv7)   FB_ARCH="armhf" ;; \
+        *) echo "Unsupported architecture: ${BUILD_ARCH}" && exit 1 ;; \
+    esac \
+    && \
+    curl -L "https://github.com/fluent/fluent-bit/releases/download/v${FLUENTBIT_VERSION}/fluent-bit-${FLUENTBIT_VERSION}-${FB_ARCH}.tar.gz" \
         -o /tmp/fluentbit.tar.gz \
     && \
     mkdir -p /opt/fluent-bit \
