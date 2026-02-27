@@ -13,10 +13,9 @@ RUN . /etc/os-release && \
     echo "deb [signed-by=/usr/share/keyrings/fluentbit-keyring.gpg] https://packages.fluentbit.io/debian/${CODENAME} ${CODENAME} main" > /etc/apt/sources.list.d/fluentbit.list
 
 # renovate: release=bookworm depName=fluent-bit
-ENV FLUENTBIT_VERSION="3.2.10"
+ENV FLUENTBIT_VERSION="3.2.4"
 
-# log out the version of fluent-bit that will be installed
-RUN echo "Fluent Bit version: ${FLUENTBIT_VERSION}"
+RUN echo "Installing Fluent Bit version: ${FLUENTBIT_VERSION}"
 
 RUN apt-get update -y && \
     apt-get install python3 python3-pip --no-install-recommends -y && \
