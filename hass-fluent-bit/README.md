@@ -19,7 +19,7 @@ Container management UI for Home Assistant OS
 
 ### **Fluent Bit**
 High‑performance log processor and forwarder  
-- Source: https://github.com/alvinchen1/hassio-addons/tree/main/fluent-bit  
+- Source: https://github.com/alvinchen1/hassio-addons/tree/main/hass-fluent-bit  
 - Ideal for structured logging, log shipping, and HA observability pipelines
 
 ---
