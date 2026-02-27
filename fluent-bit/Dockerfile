@@ -24,9 +24,9 @@ RUN \
         jq \
     && \
     case "${BUILD_ARCH}" in \
-        amd64)   FB_ARCH="x86_64" ;; \
-        aarch64) FB_ARCH="arm64" ;; \
-        armv7)   FB_ARCH="armhf" ;; \
+        amd64)   FB_ARCH="linux-amd64" ;; \
+        aarch64) FB_ARCH="linux-arm64" ;; \
+        armv7)   FB_ARCH="linux-armhf" ;; \
         *) echo "Unsupported architecture: ${BUILD_ARCH}" && exit 1 ;; \
     esac \
     && \
