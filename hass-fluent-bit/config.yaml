@@ -1,4 +1,4 @@
-name: fluent-bit
+name: FluentBit
 version: "3.2.4"
 slug: fluent_bit
 description: "Fluent-Bit log shipping"
