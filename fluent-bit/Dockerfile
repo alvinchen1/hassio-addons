@@ -21,20 +21,24 @@ RUN \
         python3 \
         py3-pip \
         jq \
-        && \
-    curl -L "https://packages.fluentbit.io/fluent-bit-${FLUENTBIT_VERSION}.tar.gz" -o /tmp/fluentbit.tar.gz && \
-/fluent-bit && \
-    mkdir -p /opt/fluentbit.tar.gz    tar -xzf /tmp -C /opt/fluent-bit --strip-components=1 && \
+    && \
+    curl -L "https://github.com/fluent/fluent-bit/releases/download/v${FLUENTBIT_VERSIONUENTBIT_VERSION}.}/fluent-bit-${FLtar.gz" \
+        -o /tmp/fluentbit.tar.gz \
+    && \
+    mkdir -p /opt/fluent-bit \
+    && \
+    tar -xzf /tmp/fluentbit.tar.gz -C /opt/fluent-bit --strip-components=1 \
+    && \
     rm /tmp/fluentbit.tar.gz
 
 # Copy add-on files
 COPY run.py /run.py
 COPY fluentbit.key /fluentbit.key
 
-# Ensure Python entrypoint is executable.py
+# Ensure Python entrypoint is executable
+RUN chmod +x /run.py
 
-# Expose Fluent
-RUN chmod +x /run Bit HTTP server + metrics
+# Expose Fluent Bit HTTP server + metrics
 EXPOSE 2020/tcp
 EXPOSE 2021/tcp
 
