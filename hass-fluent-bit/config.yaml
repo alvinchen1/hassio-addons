@@ -2,24 +2,26 @@ name: fluent-bit
 version: "3.2.4"
 slug: fluent_bit
 description: "Fluent-Bit log shipping"
+
 arch:
   - aarch64
   - amd64
-image: "ghcr.io/ablyler/{arch}-addon-fluent-bit"
+
 init: false
 startup: services
+
 map:
   - addon_config
+
 journald: true
+
 options:
   config_file: fluent_bit.conf
+
 schema:
   config_file: str
 
-# Build base images per-architecture (from legacy build.yaml)
+# Build base images per-architecture
 build_from:
   aarch64: ghcr.io/hassio-addons/debian-base:7.6.2
   amd64: ghcr.io/hassio-addons/debian-base:7.6.2
-  armhf: ghcr.io/hassio-addons/debian-base:7.6.2
-  armv7: ghcr.io/hassio-addons/debian-base:7.6.2
-  i386: ghcr.io/hassio-addons/debian-base:7.6.2
