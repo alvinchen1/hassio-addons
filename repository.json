@@ -1,5 +1,20 @@
 {
-  "name": "alvinchen1's Home Assistant Add-ons",
+  "name": "Alvin's Home Assistant Apps",
   "url": "https://github.com/alvinchen1/hassio-addons",
-  "maintainer": "alvinchen1"
+  "maintainer": "Alvin Chen",
+  "maintainer_url": "https://github.com/alvinchen1",
+  "addons": {
+    "amr2mqtt": {
+      "name": "AMR2MQTT",
+      "url": "https://github.com/alvinchen1/hassio-addons/tree/main/amr2mqtt"
+    },
+    "hass-portainer": {
+      "name": "Portainer CE",
+      "url": "https://github.com/alvinchen1/hassio-addons/tree/main/hass-portainer"
+    },
+    "fluent-bit": {
+      "name": "Fluent Bit",
+      "url": "https://github.com/alvinchen1/hassio-addons/tree/main/fluent-bit"
+    }
+  }
 }
