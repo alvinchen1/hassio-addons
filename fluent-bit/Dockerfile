@@ -7,10 +7,10 @@ ARG FLUENTBIT_VERSION=3.0.4
 # Labels required by Home Assistant Supervisor
 LABEL \
     io.hass.name="Fluent Bit" \
-    io.hass.description="High-performance log processor and io.hass.arch="${ forwarder" \
-   BUILD_ARCH}" \
-    io.hass.type="addon="${FLUENTBIT_VERSION" \
-    io.hass.version}"
+    io.hass.description="High-performance log processor and forwarder" \
+    io.hass.arch="${BUILD_ARCH}" \
+    io.hass.type="addon" \
+    io.hass.version="${FLUENTBIT_VERSION}"
 
 # Install Fluent Bit
 RUN \
