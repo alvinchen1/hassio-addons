@@ -1,0 +1,22 @@
+name: Fluent Bit
+version: "3.0.0"
+slug: fluent-bit
+description: "High-performance log processor and forwarder"
+url: https://github.com/alvinchen1/hassio-addons/tree/main/fluent-bit
+arch:
+  - amd64
+  - aarch64
+  - armv7
+startup: services
+init: false
+stage: stable
+
+ports:
+  2020/tcp: 2020
+  2021/tcp: 2021
+
+options:
+  config_file: /config/fluent-bit.conf
+
+schema:
+  config_file: str
