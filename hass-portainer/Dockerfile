@@ -1,23 +1,17 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-ARG PORTAINER_VERSION=2.19.4
+RUN apk add --no-cache curl
+
 ARG BUILD_ARCH
+RUN if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi && \
+    if [ "${BUILD_ARCH}" = "armhf" ]; then ARCH="arm"; fi && \
+    if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="arm"; fi && \
+    if [ "${BUILD_ARCH}" = "amd64" ]; then ARCH="amd64"; fi && \
+    curl -L -s "https://github.com/portainer/portainer/releases/download/2.33.7/portainer-2.33.7-linux-${ARCH}.tar.gz" | tar zxvf - -C /opt/
 
-RUN case "${BUILD_ARCH}" in \
-        amd64)   PORTAINER_ARCH="linux-amd64" ;; \
-        aarch64) PORTAINER_ARCH="linux-arm64" ;; \
-        armv7)   PORTAINER_ARCH="linux-armhf" ;; \
-        armhf)   PORTAINER_ARCH="linux-armhf" ;; \
-        *) echo "Unsupported architecture: ${BUILD_ARCH}" && exit 1 ;; \
-    esac \
-    && apk add --no-cache curl \
-    && curl -L "https://github.com/portainer/portainer/releases/download/${PORTAINER_VERSION}/portainer-${PORTAINER_VERSION}-${PORTAINER_ARCH}.tar.gz" \
-       | tar -xz -C /opt \
-    && mv /opt/portainer /opt/portainer-bin \
-    && apk del curl
+COPY /init.sh /
 
-EXPOSE 9000
-EXPOSE 8000
+RUN chmod +x /init.sh
 
-CMD ["/opt/portainer-bin/portainer"]
+ENTRYPOINT ["sh", "/init.sh"]

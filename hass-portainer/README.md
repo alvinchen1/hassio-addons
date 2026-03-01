@@ -1,48 +1,12 @@
-# Alvin's Home Assistant Apps
+# hass-portainer
+Portainer Community Edition (CE) v2.x Add-On for Home Assistant (https://blog.mikejmcguire.com/2021/02/17/portainer-ce-2-1-add-on-for-home-assistant/)
 
-A curated collection of Home Assistant apps maintained by Alvin Chen.  
-This repository includes custom builds, upstream‑synced components, and operational tooling used in my Home Assistant environment.
+This add-on provides a 2.x version of Portainer-CE, as the standard add-on is based on Portainer 1.x. There is also a Business Edition (BE) version available in the same add-on repository.
 
-## 📦 Available apps
+The initial credentials for the add-on are admin/portainer - strongly suggest changing the password upon first login.
 
-### **AMR2MQTT**
-Advanced Meter Reader → MQTT bridge  
-- Source: https://github.com/alvinchen1/hassio-addons/tree/main/amr2mqtt  
-- Based on upstream `mdegat01/amr2mqtt`  
-- Provides real‑time meter decoding and MQTT publishing
+Port options are available for exposing ports 8000 and 9000 as required.
 
-### **Portainer CE**
-Container management UI for Home Assistant OS  
-- Source: https://github.com/alvinchen1/hassio-addons/tree/main/hass-portainer  
-- Custom‑maintained build  
-- Useful for debugging, container inspection, and advanced HAOS workflows
+Portainer requires Home Assistant protection mode to be disabled, as it requires administrative access to the docker platform. As a result, care must be taken when using the portainer tool.
 
-### **Fluent Bit**
-High‑performance log processor and forwarder  
-- Source: https://github.com/alvinchen1/hassio-addons/tree/main/hass-fluent-bit  
-- Ideal for structured logging, log shipping, and HA observability pipelines
-
----
-
-## 🛠️ Installation
-
-Add this repository to Home Assistant:
-
- https://github.com/alvinchen1/hassio-addons
-
-Then install any add-on from the Add-on Store.
-
----
-
-## 🧭 Maintainer
-
-**Alvin Chen**  
-GitHub: https://github.com/alvinchen1
-
----
-
-## 📝 Notes
-
-- All add-ons are built for multi‑arch compatibility (amd64/armv7/aarch64)  
-- Each add-on includes its own `config.yaml`, Dockerfile, and documentation  
-- Contributions or issues are welcome
+Home Assistant AddOn Repository: https://github.com/MikeJMcGuire/HASSAddons.

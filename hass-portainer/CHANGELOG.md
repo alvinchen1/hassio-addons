@@ -1,23 +1,32 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [v2025.7.0] - 2025-08-25
+## [v2026.2.0] - 2026-02-11
 
 ### Changed
+- Updated to Portainer CE v2.33.7.
+- Changed port configuration to additionally expose 9443 for HTTPS.
 
+## [v2026.1.0] - 2026-01-24
+
+### Changed
+- Updated to Portainer-BE v2.33.6.
+- The UI can not to be accessed from within the HA add-on screen, as the HA ingress is currently incompatible with the new Portainer UI. You will need to configure the add-on to expose the HTTP/HTTPS ports.
+
+## [v2025.7.0] - 2025-07-30
+
+### Changed
 - Updated to Portainer CE v2.27.9.
 
-## [v2025.3.0] - 2025-03-23
+## [v2025.5.0] - 2025-05-28
 
 ### Changed
+- Updated to Portainer CE v2.27.6.
 
+## [v2025.3.0] - 2025-03-12
+
+### Changed
 - Updated to Portainer CE v2.27.1.
-
-## [v2024.12.0] - 2025-01-15
-
-### Changed
-
-- Updated to Portainer CE v2.21.5.
 
 ## [v2024.12.0] - 2024-12-01
 
