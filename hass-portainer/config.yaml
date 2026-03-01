@@ -1,0 +1,30 @@
+name: Portainer
+slug: portainer
+version: "1.0.0"
+description: "Container management made easy"
+url: https://github.com/alvinchen1/hassio-addons/tree/main/hass-portainer
+arch:
+  - amd64
+  - armv7
+  - armhf
+  - aarch64
+
+startup: services
+init: false
+stage: stable
+
+docker_api: true
+ingress: true
+ingress_port: 9000
+
+panel_icon: mdi:docker
+
+ports:
+  8000/tcp: null
+  9000/tcp: null
+
+map:
+  - ssl
+
+options: {}
+schema: {}

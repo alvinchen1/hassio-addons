@@ -1,17 +1,19 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/home-assistant/{arch}-base:3.19
 FROM ${BUILD_FROM}
 
-RUN apk add --no-cache curl
+# Set Portainer version
+ARG PORTAINER_VERSION=2.20.3
 
-ARG BUILD_ARCH
-RUN if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi && \
-    if [ "${BUILD_ARCH}" = "armhf" ]; then ARCH="arm"; fi && \
-    if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="arm"; fi && \
-    if [ "${BUILD_ARCH}" = "amd64" ]; then ARCH="amd64"; fi && \
-    curl -L -s "https://github.com/portainer/portainer/releases/download/2.27.9/portainer-2.27.9-linux-${ARCH}.tar.gz" | tar zxvf - -C /opt/
+# Install dependencies and Portainer
+RUN apk add --no-cache curl \
+    && curl -L https://github.com/portainer/portainer/releases/download/${PORTAINER_VERSION}/portainer-${PORTAINER_VERSION}-linux-${BUILD_ARCH}.tar.gz \
+    | tar -xz -C /opt \
+    && mv /opt/portainer /opt/portainer-bin \
+    && apk del curl
 
-COPY /init.sh /
+# Expose Portainer ports
+EXPOSE 9000
+EXPOSE 8000
 
-RUN chmod +x /init.sh
-
-ENTRYPOINT ["sh", "/init.sh"]
+# Run Portainer
+CMD ["/opt/portainer-bin/portainer"]
