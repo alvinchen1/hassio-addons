@@ -1,5 +1,5 @@
 name: FluentBit
-version: "3.2.4"
+version: "3.2.5"
 slug: fluent_bit
 description: "Fluent-Bit log shipping"
 
@@ -9,14 +9,17 @@ arch:
 
 init: false
 startup: services
+journald: true
 
 map:
   - addon_config
 
-journald: true
-
 options:
   config_file: fluent_bit.conf
+
+ports:
+  2020/tcp: 2020
+  514/udp: 514
 
 schema:
   config_file: str
