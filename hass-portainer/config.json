@@ -20,8 +20,6 @@
   "ingress_port": 9000,
   "panel_icon": "mdi:docker",
 
-  "image": "mikejmcguire/hass-portainer-{arch}",
-
   "ports": {
     "8000/tcp": null,
     "9000/tcp": null,
