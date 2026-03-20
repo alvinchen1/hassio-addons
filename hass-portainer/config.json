@@ -1,7 +1,7 @@
 {
   "name": "Portainer",
   "slug": "portainer",
-  "version": "2026.2.2",
+  "version": "2026.2.5",
   "description": "Container management made easy",
   "url": "https://github.com/alvinchen1/hassio-addons",
 
@@ -32,7 +32,5 @@
     "9443/tcp": "Port for exposing Portainer UI directly (HTTPS)"
   },
 
-  "map": [
-    "ssl"
-  ]
+"map": ["ssl", "docker"]
 }
