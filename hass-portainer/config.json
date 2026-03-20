@@ -17,7 +17,7 @@
   "docker_api": true,
 
   "ingress": true,
-  "ingress_port": 9000,
+  "ingress_port": 9443,
   "panel_icon": "mdi:docker",
 
   "ports": {
