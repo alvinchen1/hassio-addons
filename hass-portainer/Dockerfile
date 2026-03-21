@@ -1,18 +1,5 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/{arch}-base:3.19
-FROM ${BUILD_FROM}
+FROM portainer/portainer-ce:2.39.1-alpine
 
-RUN apk add --no-cache curl
+RUN apk --no-cache add tzdata && rm -rf /var/cache/apk/*
 
-ARG BUILD_ARCH
-RUN if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi && \
-    if [ "${BUILD_ARCH}" = "armhf" ]; then ARCH="arm"; fi && \
-    if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="arm"; fi && \
-    if [ "${BUILD_ARCH}" = "amd64" ]; then ARCH="amd64"; fi && \
-    curl -L -s "https://github.com/portainer/portainer/releases/download/2.33.7/portainer-2.33.7-linux-${ARCH}.tar.gz" \
-      | tar zxvf - -C /opt/
-
-COPY /init.sh /
-
-RUN chmod +x /init.sh
-
-ENTRYPOINT ["sh", "/init.sh"]
+ENTRYPOINT ["/portainer"]
