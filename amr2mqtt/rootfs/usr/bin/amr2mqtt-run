@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -e
+
+LOG_LEVEL="${LOG_LEVEL:-INFO}"
+MQTT_HOST="${MQTT_HOST:-127.0.0.1}"
+MQTT_TOPIC_BASE="amr2mqtt"
+LAST_FRAME_FILE="/data/last_frame"
+
+log() {
+  local level="$1"; shift
+  # Simple level filter: only INFO+ for now
+  echo "[amr2mqtt] ${level} $*"
+}
+
+log INFO "Starting rtl_tcp..."
+rtl_tcp -a 0.0.0.0 &
+RTL_TCP_PID=$!
+
+sleep 2
+
+log INFO "Starting rtlamr..."
+rtlamr -format=json | while read -r line; do
+    log DEBUG "Frame: $line"
+    echo "$line" | mosquitto_pub -h "$MQTT_HOST" -t "$MQTT_TOPIC_BASE/raw" -s
+    date +%s > "$LAST_FRAME_FILE"
+done &
+RTLAMR_PID=$!
+
+wait "$RTL_TCP_PID"
+wait "$RTLAMR_PID"

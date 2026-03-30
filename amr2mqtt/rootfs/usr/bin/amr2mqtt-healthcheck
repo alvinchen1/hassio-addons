@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+set -e
+
+# ============================================================
+# AMR2MQTT Healthcheck
+# Ensures:
+#   - rtl_tcp is running
+#   - rtlamr is running
+#   - homelink-detector is running
+#   - MQTT is reachable
+#   - AMR frames are being received (heartbeat)
+# ============================================================
+
+MQTT_HOST="${MQTT_HOST:-127.0.0.1}"
+LAST_FRAME_FILE="/data/last_frame"
+MAX_FRAME_AGE=$((10 * 60))   # 10 minutes
+
+log() {
+  echo "[healthcheck] $1"
+}
+
+# ------------------------------------------------------------
+# Check rtl_tcp
+# ------------------------------------------------------------
+if ! pgrep -x "rtl_tcp" > /dev/null; then
+  log "FAIL: rtl_tcp not running"
+  exit 1
+fi
+
+# ------------------------------------------------------------
+# Check rtlamr
+# ------------------------------------------------------------
+if ! pgrep -x "rtlamr" > /dev/null; then
+  log "FAIL: rtlamr not running"
+  exit 1
+fi
+
+# ------------------------------------------------------------
+# Check homelink-detector
+# ------------------------------------------------------------
+if ! pgrep -x "homelink-detector" > /dev/null; then
+  log "FAIL: homelink-detector not running"
+  exit 1
+fi
+
+# ------------------------------------------------------------
+# Check MQTT connectivity
+# ------------------------------------------------------------
+if ! timeout 3 bash -c "echo '' | mosquitto_pub -h \"$MQTT_HOST\" -t 'amr2mqtt/healthcheck' -n"; then
+  log "FAIL: MQTT publish failed"
+  exit 1
+fi
+
+# ------------------------------------------------------------
+# Check last AMR frame timestamp
+# ------------------------------------------------------------
+if [ ! -f "$LAST_FRAME_FILE" ]; then
+  log "FAIL: No last_frame file found"
+  exit 1
+fi
+
+LAST_FRAME_TS=$(cat "$LAST_FRAME_FILE")
+NOW_TS=$(date +%s)
+
+if (( NOW_TS - LAST_FRAME_TS > MAX_FRAME_AGE )); then
+  log "FAIL: No AMR frames received in over $((MAX_FRAME_AGE/60)) minutes"
+  exit 1
+fi
+
+# ------------------------------------------------------------
+# All checks passed
+# ------------------------------------------------------------
+log "OK"
+exit 0
