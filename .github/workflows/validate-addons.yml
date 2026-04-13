@@ -1,0 +1,45 @@
+name: Validate Add-ons
+
+on:
+  pull_request:
+  push:
+    branches:
+      - repo-consolidation-2026-04
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install yamllint
+        run: sudo apt-get install -y yamllint
+
+      - name: Validate YAML files
+        run: yamllint .
+
+      - name: Validate repository.json
+        run: |
+          python3 - << 'EOF'
+          import json
+          with open("repository.json") as f:
+              json.load(f)
+          print("repository.json is valid JSON")
+          EOF
+
+      - name: Validate add-on config.yaml files
+        run: |
+          for addon in $(ls -d */ | grep -v '\.github' | grep -v '.*\.yml'); do
+            if [ -f "$addon/config.yaml" ]; then
+              yamllint "$addon/config.yaml"
+            fi
+          done
+
+      - name: Validate Dockerfiles
+        run: |
+          for addon in $(ls -d */ | grep -v '\.github'); do
+            if [ -f "$addon/Dockerfile" ]; then
+              docker run --rm -i hadolint/hadolint < "$addon/Dockerfile"
+            fi
+          done

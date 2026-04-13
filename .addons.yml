@@ -1,7 +1,33 @@
----
-channel: stable
+maintainer: "Alvin Chen"
+repository: "https://github.com/alvinchen1/hassio-addons"
+
+defaults:
+  architectures:
+    - amd64
+    - aarch64
+  validate:
+    config_schema: true
+    dockerfile: true
+    apparmor: true
+  publish: true
+
 addons:
   amr2mqtt:
-    repository: bmjones2/addon-amr2mqtt
-    target: amr2mqtt
-    image: ghcr.io/mdegat01/amr2mqtt/{arch}
+    path: amr2mqtt
+    slug: amr2mqtt
+    build: true
+    image: ghcr.io/alvinchen1/amr2mqtt/{arch}
+
+  hass-portainer:
+    path: hass-portainer
+    slug: hass-portainer
+    build: true
+    architectures:
+      - amd64
+    image: ghcr.io/alvinchen1/hass-portainer/{arch}
+
+  hass-fluent-bit:
+    path: fluent-bit
+    slug: hass-fluent-bit
+    build: true
+    image: ghcr.io/alvinchen1/hass-fluent-bit/{arch}
