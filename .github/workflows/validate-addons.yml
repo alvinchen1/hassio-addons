@@ -1,6 +1,5 @@
 ---
 name: Validate Add-ons
-
 on:
   pull_request: {}
   workflow_dispatch: {}
