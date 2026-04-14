@@ -1,6 +1,6 @@
 ---
 name: AMR2MQTT
-version: "2026.04.13"
+version: "2.1.2"
 slug: amr2mqtt
 description: "Advanced Meter Reader to MQTT bridge"
 url: https://github.com/alvinchen1/hassio-addons/tree/main/amr2mqtt
