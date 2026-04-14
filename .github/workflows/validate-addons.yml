@@ -3,7 +3,7 @@ name: Validate Add-ons
 
 on:
   pull_request: {}
-  workflow_dispatch:
+  workflow_dispatch: {}
   push:
     branches:
       - repo-consolidation-2026-04
