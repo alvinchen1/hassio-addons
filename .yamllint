@@ -68,4 +68,4 @@ rules:
     level: error
   truthy:
     level: error
-    allowed: ['true', 'false']
+    check-keys: false
