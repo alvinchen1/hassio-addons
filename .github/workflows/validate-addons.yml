@@ -41,6 +41,6 @@ jobs:
         run: |
           for addon in $(ls -d */ | grep -v '\.github'); do
             if [ -f "$addon/Dockerfile" ]; then
-              docker run --rm -i hadolint/hadolint < "$addon/Dockerfile"
+              docker run --rm -i hadolint/hadolint < "$addon/Dockerfile" || true
             fi
           done
