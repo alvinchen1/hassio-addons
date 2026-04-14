@@ -1,6 +1,6 @@
 ---
 name: FluentBit
-version: "3.2.5"
+version: "2026.04.13"
 slug: fluent_bit
 description: "Fluent-Bit log shipping"
 
