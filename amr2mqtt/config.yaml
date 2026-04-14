@@ -12,6 +12,7 @@ build_from:
   amd64: ghcr.io/home-assistant/amd64-base:3.19
   aarch64: ghcr.io/home-assistant/aarch64-base:3.19
   armv7: ghcr.io/home-assistant/armv7-base:3.19
+image: ghcr.io/mdegat01/amr2mqtt/{arch}
 startup: services
 init: false
 stage: stable
