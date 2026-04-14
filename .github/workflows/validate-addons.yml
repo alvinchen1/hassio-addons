@@ -1,7 +1,8 @@
+---
 name: Validate Add-ons
 
 on:
-  pull_request:
+  pull_request: {}
   push:
     branches:
       - repo-consolidation-2026-04
