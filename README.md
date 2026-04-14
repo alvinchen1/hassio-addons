@@ -105,9 +105,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[addon-amr2mqtt]: https://github.com/mdegat01/addon-amr2mqtt/tree/v2.1.2
-[addon-doc-amr2mqtt]: https://github.com/mdegat01/addon-amr2mqtt/blob/v2.1.2/README.md
-[amr2mqtt-issue]: https://github.com/mdegat01/addon-amr2mqtt/issues
+[addon-amr2mqtt]: https://github.com/alvinchen1/addon-amr2mqtt/tree/v2.1.2
+[addon-doc-amr2mqtt]: https://github.com/alvinchen1/addon-amr2mqtt/blob/v2.1.2/README.md
+[amr2mqtt-issue]: https://github.com/alvinchen1/addon-amr2mqtt/issues
 [amr2mqtt-version-shield]: https://img.shields.io/badge/version-v2.1.2-blue.svg
 [add-addon-amr2mqtt]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=39bd2704_amr2mqtt
 [amr2mqtt-aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
@@ -117,14 +117,14 @@ SOFTWARE.
 [amr2mqtt-i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 [add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
-[add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A//github.com/mdegat01/hassio-addons
+[add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A//github.com/alvinchen1/hassio-addons
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum-centralcommand]: https://community.home-assistant.io/u/CentralCommand/?u=CentralCommand
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
 [forum]: https://community.home-assistant.io?u=CentralCommand
-[mdegat01]: https://github.com/mdegat01
-[issue]: https://github.com/mdegat01/hassio-addons/issues
-[license-shield]: https://img.shields.io/github/license/mdegat01/hassio-addons.svg
+[alvinchen1]: https://github.com/alvinchen1
+[issue]: https://github.com/alvinchen1/hassio-addons/issues
+[license-shield]: https://img.shields.io/github/license/alvinchen1/hassio-addons.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2022.svg
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
 [reddit]: https://reddit.com/r/homeassistant
