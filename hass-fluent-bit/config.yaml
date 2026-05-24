@@ -14,6 +14,7 @@ journald: true
 
 map:
   - addon_config
+  - host_journal
 
 options:
   config_file: fluent_bit.conf
