@@ -1,7 +1,6 @@
 ---
 name: Lock
 
-# yamllint disable-line rule:truthy
 on:
   schedule:
     - cron: "0 9 * * *"
@@ -10,3 +9,5 @@ on:
 jobs:
   workflows:
     uses: mdegat01/addon-workflows/.github/workflows/lock.yaml@main
+    with:
+      github-token: ""
