@@ -14,16 +14,11 @@ RUN . /etc/os-release && \
     echo "deb [signed-by=/usr/share/keyrings/fluentbit-keyring.gpg] https://packages.fluentbit.io/debian/${CODENAME} ${CODENAME} main" \
     > /etc/apt/sources.list.d/fluentbit.list
 
-ENV FLUENTBIT_VERSION="3.2.4"
-
-RUN echo "Installing Fluent Bit version: ${FLUENTBIT_VERSION}"
-
 RUN apt-get update -y && \
     apt-get install --no-install-recommends -y \
         python3 \
-        python3-pip && \
-    apt-get install --no-install-recommends -y \
-        fluent-bit=${FLUENTBIT_VERSION} && \
+        python3-pip \
+        fluent-bit && \
     rm -rf /var/lib/apt/lists/*
 
 COPY run.py /run.py
