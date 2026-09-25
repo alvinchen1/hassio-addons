@@ -1,7 +1,8 @@
-FROM ghcr.io/hassio-addons/debian-base:6.2.0
+FROM ghcr.io/hassio-addons/debian-base:9.4.0
 
 RUN apt-get update -y && \
-    apt-get install curl gpg --no-install-recommends -y
+    apt-get install --no-install-recommends -y gpg && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY fluentbit.key /fluentbit.key
 RUN cat /fluentbit.key | gpg --dearmor > /usr/share/keyrings/fluentbit-keyring.gpg && \
